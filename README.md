@@ -9,5 +9,8 @@
 - To start the app, type **npm run dev** or **yarn dev** (this will create a local server on port :5000)
 - Open your browser at **http://localhost:5000/**
 
+##### Project structure: 
+- **package.json** - Contains the dependencies ans scripts necessary for the project to run (Svelte is used only in the compilation phase
+
 
 
