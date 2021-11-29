@@ -4,7 +4,7 @@
 - Create a folder where you want to keep your Svelte project then open that folder inside VS Code.
 - To create a new Svelte project, open the Terminal and run the following command: **npx degit sveltejs/template [nameOfTheProject]**
 - If the project has been created successfully, you should see the following message: **cloned sveltejs/tmeplate#HEAD to [nameOfTheProject]**
-- Navigate inside the project folder using the command: **cd . \ [nameOfTheProject] \ **
+- Navigate inside the project folder using the command: cd . \ [nameOfTheProject] \ 
 - Run **npm install** (if you're using npm) or **yarn** (if you're using Yarn). This will install the needed project packages.
 - To start the app, type **npm run dev** or **yarn dev** (this will create a local server on port :5000)
 
