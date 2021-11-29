@@ -7,4 +7,7 @@
 - Navigate inside the project folder using the command: cd . \ [nameOfTheProject] \ 
 - Run **npm install** (if you're using npm) or **yarn** (if you're using Yarn). This will install the needed project packages.
 - To start the app, type **npm run dev** or **yarn dev** (this will create a local server on port :5000)
+- Open your browser at **http://localhost:5000/**
+
+
 
