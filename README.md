@@ -10,7 +10,11 @@
 - Open your browser at **http://localhost:5000/**
 
 ##### Project structure: 
-- **package.json** - Contains the dependencies ans scripts necessary for the project to run (Svelte is used only in the compilation phase and never bundeled into the code that is sent to the browser)
+- **package.json** - Contains the dependencies ans scripts necessary for the project to run (Svelte is used only in the compilation phase and never bundeled into the code that is sent to the browser; **rollup**, listed in the devDependencies list is the compiler which transforms the Svelte code into Javascript that the browser understands)
+- **rollup.config.js** - the file with all the Rollup setups
+- **package.json** -
+- **package-lock.json**
+     
 
 
 
