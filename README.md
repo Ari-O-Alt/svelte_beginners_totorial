@@ -14,6 +14,8 @@
 - **rollup.config.js** - the file with all the Rollup setups
 - **package.json** - to give information to npm that allows it to identify the project as well as handle the project's dependencies
 - **package-lock.json** - locks dependencies to a specific version number (ensures that installations remain identical for all developers and environments)
+- **node modules** - the folder where all dependencies are installed (it gets generated when running **yarn** or **npm install**)
+- **public** - contains static files that are published when we want to make our project live (it contains a **favicon.png** file, not specific to Svelte; a **global.css file**, which holds global styling for the whole app; **index.html**, the only HTML file in the app and it is basically the entry point for the whole Svelte code)
      
 
 
