@@ -18,6 +18,10 @@
 
 	// condition for the if, else if, else statatements
 	const num = NaN
+	// array of items for the each cases
+	const names = ["Rob", "John", "Katy", "Ilana"]
+	// array of objects for the each cases
+	const people = [{firstName: "Anna", lastName:"Bomberg", city:"Berlin"}, {firstName: "Judy", lastName:"Foster", city:"Paris"}]
 
 </script>
 
@@ -31,15 +35,24 @@
 	<p class={condition %2 ? success : danger}>This text will have different colors based on conditions!</p>
 	<p class:success={condition %2}>This is just another way of applying classes conditionally - check the markup!</p>
 	 
-{#if num === 0}
-<h2>This will show up if the number is equal to zero!</h2> 
-{:else if num < 0}
-<h2>This will show up if the number is smaller than zero!</h2> 
-{:else if Number.isNaN(num)}
-<h2>This will show up if the number is not a number!</h2> 
-{:else}
-<h2>This will show if the number is not zero!</h2>
-{/if}
+<!-- 	if, else if, else blocks -->
+	{#if num === 0}
+	<h2>This will show up if the number is equal to zero!</h2> 
+	{:else if num < 0}
+	<h2>This will show up if the number is smaller than zero!</h2> 
+	{:else if Number.isNaN(num)}
+	<h2>This will show up if the number is not a number!</h2> 
+	{:else}
+	<h2>This will show if the number is not zero!</h2>
+	{/if}
+<!-- each blocks -->
+	{#each names as name, index}
+	<p>{index} - {name}</p>
+	{/each}
+<!-- each blocks -->
+	{#each people as person, index}
+	<p>{index}. My first name is: {person.firstName}, my last name is {person.lastName} and I live in {person.city}!</p>
+	{/each}
 	
 </main>
 
