@@ -46,11 +46,11 @@
 	<h2>This will show if the number is not zero!</h2>
 	{/if}
 <!-- each blocks -->
-	{#each names as name, index}
+	{#each names as name, index (`${index}_${name}`)}
 	<p>{index} - {name}</p>
 	{/each}
 <!-- each blocks -->
-	{#each people as person, index}
+	{#each people as person, index (`${index}_${person.firstName}`)}
 	<p>{index}. My first name is: {person.firstName}, my last name is {person.lastName} and I live in {person.city}!</p>
 	{/each}
 	
