@@ -16,6 +16,9 @@
 	const success = "success"
 	const danger = "danger"
 
+	// condition for the if, else if, else statatements
+	const num = NaN
+
 </script>
 
 <main>
@@ -28,7 +31,15 @@
 	<p class={condition %2 ? success : danger}>This text will have different colors based on conditions!</p>
 	<p class:success={condition %2}>This is just another way of applying classes conditionally - check the markup!</p>
 	 
-
+{#if num === 0}
+<h2>This will show up if the number is equal to zero!</h2> 
+{:else if num < 0}
+<h2>This will show up if the number is smaller than zero!</h2> 
+{:else if Number.isNaN(num)}
+<h2>This will show up if the number is not a number!</h2> 
+{:else}
+<h2>This will show if the number is not zero!</h2>
+{/if}
 	
 </main>
 
