@@ -23,6 +23,13 @@
 	// array of objects for the each cases
 	const people = [{firstName: "Anna", lastName:"Bomberg", city:"Berlin"}, {firstName: "Judy", lastName:"Foster", city:"Paris"}]
 
+	// event handlers
+	let counter = 0
+	const increaseCounter = (event, stepSize) => {
+		console.log(event)
+		counter = counter + stepSize
+	}
+
 </script>
 
 <main>
@@ -54,6 +61,8 @@
 	<p>{index}. My first name is: {person.firstName}, my last name is {person.lastName} and I live in {person.city}!</p>
 	{/each}
 	
+
+	<button on:click={(event) => increaseCounter(event, 5)}>{counter}</button>
 </main>
 
 <style>
