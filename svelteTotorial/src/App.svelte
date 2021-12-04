@@ -31,7 +31,18 @@
 	}
 
 	// object that will keep track of the form fields
-	const formValues = {firstName: "", lastName: "", about: "", country: "", jobLocations: [], remoteWork: false, skills: []}
+	let formValues = {firstName: "", lastName: "", about: "", country: "", jobLocations: [], remoteWork: false, skills: [], yearsOfExperience: ""}
+
+	//submit event handler
+	const onSubmitClick = (event) => {
+		event.preventDefault(); // prevents page refresh
+		console.log(formValues)
+	}
+
+	// reset event handler
+	const onResetClick = () => {
+		formValues = {firstName: "", lastName: "", about: "", continue: "", jobLocations: [], remoteWork: false, skills: [], yearsOfExperience: ""}
+	}
 </script>
 
 <main>
@@ -65,7 +76,7 @@
 	<button on:click={(event) => increaseCounter(event, 5)}>{counter}</button>
 
 <!-- simple form -->
-	<form>
+	<form on:submit={onSubmitClick}>
 		<div>
 			<label for="firstName">First Name</label>
 			<input type="text" id="firstName" bind:value={formValues.firstName}/>
@@ -118,6 +129,27 @@
 			<label for="react">React</label>
 			<input type="checkbox" id="react" value="React" bind:group={formValues.skills}/>
 		</div>
+<!-- radio buttons -->
+		<div>
+			<label>Years of experience:</label>
+			<label for="0-2">0-2 Years</label>
+			<input type="radio" id="0-2" value="0-2" bind:group={formValues.yearsOfExperience}/>
+			<label for="2-4">2-4 Years</label>
+			<input type="radio" id="2-4" value="2-4" bind:group={formValues.yearsOfExperience}/>
+			<label for="4-7">4-7 Years</label>
+			<input type="radio" id="4-7" value="4-7" bind:group={formValues.yearsOfExperience}/>
+			<label for="More than 7">More than 7 Years</label>
+			<input type="radio" id="More than 7" value="More than 7" bind:group={formValues.yearsOfExperience}/>
+
+		</div>
+<!-- submit button -->
+		<div>
+			<button>SUBMIT</button>
+		</div>
+
+		<div>
+			<button on:click|preventDefault={onResetClick}>RESET</button>
+		</div>
 
 	</form>
 <!-- here we print the form content to the screen -->
@@ -134,6 +166,7 @@
 	{#each formValues.skills as skill, index (`${index}_${skill}`)}
 	<p>{skill}</p>
 	{/each}
+	<p>I have {formValues.yearsOfExperience} of experience.</p>
 
 </main>
 
