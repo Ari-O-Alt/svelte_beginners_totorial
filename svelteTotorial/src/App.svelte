@@ -55,11 +55,10 @@
 
 	// reactive statements (let you write the business logic of event handlers in isolation)
 	let volume = 0
-	const increaseVolume = () => {
+	const onIncreaseVolume = () => {
 		volume += 2
 	}
-
-	const decreaseVolume = () => {
+	const onDecreaseVolume = () => {
 		volume -= 2
 	}
 
@@ -202,8 +201,8 @@
 	<button on:click={onAddPhone}>ADD PHONE</button>
 <!-- output for the reactive statements -->
 <p>The current volume is : {volume}</p>
-<button on:click={increaseVolume}>Increase volume</button>
-<button on:click={decreaseVolume}>Decrease volume</button>
+<button on:click={onIncreaseVolume}>Increase volume</button>
+<button on:click={onDecreaseVolume}>Decrease volume</button>
 </main>
 
 <style>
