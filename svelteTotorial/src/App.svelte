@@ -31,7 +31,7 @@
 	}
 
 	// object that will keep track of the form fields
-	const formValues = {firstName: "", lastName: ""}
+	const formValues = {firstName: "", lastName: "", about: "", country: "", jobLocation: []}
 </script>
 
 <main>
@@ -62,10 +62,9 @@
 	{#each people as person, index (`${index}_${person.firstName}`)}
 	<p>{index}. My first name is: {person.firstName}, my last name is {person.lastName} and I live in {person.city}!</p>
 	{/each}
-	
-
 	<button on:click={(event) => increaseCounter(event, 5)}>{counter}</button>
 
+<!-- simple form -->
 	<form>
 		<div>
 			<label for="firstName">First Name</label>
@@ -75,10 +74,39 @@
 			<label for="lastName">Last Name</label>
 			<input type="text" id="lastName" bind:value={formValues.lastName}/>
 		</div>
+		<div>
+			<label for="about">About me</label>
+			<textarea type="text" id="about" bind:value={formValues.about}/>
+		</div>
+<!-- single selection element -->
+		<div>
+			<label for="country">Country</label>
+				<select id="country" bind:value={formValues.country}>
+					<option value="">Select a country</option>
+					<option value="Germany">Germany</option>
+					<option value="France">France</option>
+					<option value="Spain">Spain</option>
+					<option value="Romania">Romania</option>
+				</select>
+		</div>
+<!-- multiselection element -->
+		<div>
+			<label for="jobLocation">Job location</label>
+				<select id="jobLocation" bind:value={formValues.jobLocation} multiple>
+					<option value="">Select a country</option>
+					<option value="Germany">Germany</option>
+					<option value="France">France</option>
+					<option value="Spain">Spain</option>
+					<option value="Romania">Romania</option>
+				</select>
+		</div>
 	</form>
 
 	<p>This is my first name: {formValues.firstName}</p>
 	<p>This is my last name: {formValues.lastName}</p>
+	<p>A little about myself: {formValues.about}</p>
+	<p>I come from: {formValues.country}</p>
+
 </main>
 
 <style>
