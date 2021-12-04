@@ -53,6 +53,25 @@
 		items = [...items, {item: "Phone", price: 1000}]
 	}
 
+	// reactive statements (let you write the business logic of event handlers in isolation)
+	let volume = 0
+	const increaseVolume = () => {
+		volume += 2
+	}
+
+	const decreaseVolume = () => {
+		volume -= 2
+	}
+
+	$: if(volume < 0) {
+		console.log("Can't got any lower!")
+		volume = 0
+	} else if (volume > 20) {
+		console.log("Can't go any higher!")
+		volume = 20
+	}
+	
+
 	
 </script>
 
@@ -181,7 +200,10 @@
 <!-- output for the reactive declaration -->
 	<p>The total of your shopping cart is: {total}</p>
 	<button on:click={onAddPhone}>ADD PHONE</button>
-
+<!-- output for the reactive statements -->
+<p>The current volume is : {volume}</p>
+<button on:click={increaseVolume}>Increase volume</button>
+<button on:click={decreaseVolume}>Decrease volume</button>
 </main>
 
 <style>
