@@ -18,7 +18,6 @@
 - **public** - contains static files that are published when we want to make our project live (it contains a **favicon.png** file, not specific to Svelte; a **global.css file**, which holds global styling for the whole app; **index.html**, the only HTML file in the app and it is basically the entry point for the whole Svelte code)
 - **scripts** folder contains a setup file for Typescript
 - **src** folder contains two files: **main.js**, in which we import the Svelte root component and invoke it as a function (App in the initial setup); the app targets the body of the single HTML file in the projects and that's where the Svelte code will be rendered. The **App.svelte** file which contains all the Svelte code: the HTML, the CSS and the Javascript code, all in one place.
-     
 
 
 
