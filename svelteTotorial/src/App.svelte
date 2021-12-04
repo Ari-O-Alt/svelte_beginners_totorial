@@ -30,6 +30,8 @@
 		counter = counter + stepSize
 	}
 
+	// object that will keep track of the form fields
+	const formValues = {firstName: "", lastName: ""}
 </script>
 
 <main>
@@ -63,6 +65,20 @@
 	
 
 	<button on:click={(event) => increaseCounter(event, 5)}>{counter}</button>
+
+	<form>
+		<div>
+			<label for="firstName">First Name</label>
+			<input type="text" id="firstName" bind:value={formValues.firstName}/>
+		</div>
+		<div>
+			<label for="lastName">Last Name</label>
+			<input type="text" id="lastName" bind:value={formValues.lastName}/>
+		</div>
+	</form>
+
+	<p>This is my first name: {formValues.firstName}</p>
+	<p>This is my last name: {formValues.lastName}</p>
 </main>
 
 <style>
@@ -99,4 +115,6 @@
 			max-width: none;
 		}
 	}
+
+
 </style>
