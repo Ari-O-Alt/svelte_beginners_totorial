@@ -31,7 +31,7 @@
 	}
 
 	// object that will keep track of the form fields
-	const formValues = {firstName: "", lastName: "", about: "", country: "", jobLocation: []}
+	const formValues = {firstName: "", lastName: "", about: "", country: "", jobLocations: [], remoteWork: false, skills: []}
 </script>
 
 <main>
@@ -92,7 +92,7 @@
 <!-- multiselection element -->
 		<div>
 			<label for="jobLocation">Job location</label>
-				<select id="jobLocation" bind:value={formValues.jobLocation} multiple>
+				<select id="jobLocation" bind:value={formValues.jobLocations} multiple>
 					<option value="">Select a country</option>
 					<option value="Germany">Germany</option>
 					<option value="France">France</option>
@@ -100,12 +100,40 @@
 					<option value="Romania">Romania</option>
 				</select>
 		</div>
-	</form>
 
+<!-- 		single checkbox -->
+		<div>
+			<label for="remoteWork">Open to remote work?</label>
+			<input type="checkbox" id="remoteWork" bind:checked={formValues.remoteWork}/>
+		</div>
+<!-- 		multiple checkboxes -->
+		<div>
+			<label>Skills:</label>
+			<label for="html">HTML</label>
+			<input type="checkbox" id="html" value="HTML" bind:group={formValues.skills}/>
+			<label for="css">CSS</label>
+			<input type="checkbox" id="css" value="CSS" bind:group={formValues.skills}/>
+			<label for="javascript">Javascript</label>
+			<input type="checkbox" id="javascript" value="Javascript" bind:group={formValues.skills}/>
+			<label for="react">React</label>
+			<input type="checkbox" id="react" value="React" bind:group={formValues.skills}/>
+		</div>
+
+	</form>
+<!-- here we print the form content to the screen -->
 	<p>This is my first name: {formValues.firstName}</p>
 	<p>This is my last name: {formValues.lastName}</p>
 	<p>A little about myself: {formValues.about}</p>
 	<p>I come from: {formValues.country}</p>
+	<p>I am willing to relocate in the following countries:</p>
+	{#each formValues.jobLocations as jobLocation, index (`${index}_${jobLocation}`)}
+	<p>{jobLocation}</p>
+	{/each}
+	<p>Open to remote work: {formValues.remoteWork ? "Yes" : " "}</p>
+	<p>I have the following skills:</p>
+	{#each formValues.skills as skill, index (`${index}_${skill}`)}
+	<p>{skill}</p>
+	{/each}
 
 </main>
 
