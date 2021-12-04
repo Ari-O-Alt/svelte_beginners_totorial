@@ -43,6 +43,17 @@
 	const onResetClick = () => {
 		formValues = {firstName: "", lastName: "", about: "", continue: "", jobLocations: [], remoteWork: false, skills: [], yearsOfExperience: ""}
 	}
+
+	// reactive declarations - they are sensitive to parameters changes (they recalculate)
+	let items = [{item: "Laptop", price: 500}, {item: "Headphones", price: 120}, {item: "Mouse", price: 40}]
+	$:total = items.reduce((total, i) => total = total + i.price, 0)
+
+	const onAddPhone = () => {
+		// don't forget, for complex types (objects, arrays etc), a reassigment is needed, direct mutation won't work for updates
+		items = [...items, {item: "Phone", price: 1000}]
+	}
+
+	
 </script>
 
 <main>
@@ -119,7 +130,7 @@
 		</div>
 <!-- 		multiple checkboxes -->
 		<div>
-			<label>Skills:</label>
+			<label for="">Skills:</label>
 			<label for="html">HTML</label>
 			<input type="checkbox" id="html" value="HTML" bind:group={formValues.skills}/>
 			<label for="css">CSS</label>
@@ -131,7 +142,7 @@
 		</div>
 <!-- radio buttons -->
 		<div>
-			<label>Years of experience:</label>
+			<label for="">Years of experience:</label>
 			<label for="0-2">0-2 Years</label>
 			<input type="radio" id="0-2" value="0-2" bind:group={formValues.yearsOfExperience}/>
 			<label for="2-4">2-4 Years</label>
@@ -146,7 +157,6 @@
 		<div>
 			<button>SUBMIT</button>
 		</div>
-
 		<div>
 			<button on:click|preventDefault={onResetClick}>RESET</button>
 		</div>
@@ -167,6 +177,10 @@
 	<p>{skill}</p>
 	{/each}
 	<p>I have {formValues.yearsOfExperience} of experience.</p>
+
+<!-- output for the reactive declaration -->
+	<p>The total of your shopping cart is: {total}</p>
+	<button on:click={onAddPhone}>ADD PHONE</button>
 
 </main>
 
