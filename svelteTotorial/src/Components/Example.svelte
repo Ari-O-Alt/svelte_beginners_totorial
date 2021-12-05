@@ -1,10 +1,10 @@
 <script>
-	export let name;
-	export let city;
+	import Example2 from "./Example2.svelte"
 </script>
 
 <main>
-	<p>Hello {name} from {city}</p>
+	<h3>This is component "Example"</h3>
+	<Example2/>
 </main>
 
 <style>
