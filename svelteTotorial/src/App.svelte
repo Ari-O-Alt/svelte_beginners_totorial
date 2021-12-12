@@ -1,9 +1,12 @@
 <script>
+	/* import {createEventDispatcher} from "svelte" */
 	import {setContext} from "svelte"
 	// we import the component from its file
 	import Example from "./Components/Example.svelte"
 	import Example4 from "./Components/Example4.svelte"
 	import FakePopup from "./Components/FakePopup.svelte";
+	import Outer from "./Components/Outer.svelte";
+	import Card from "./Components/Card.svelte"
 
 	// multiple props grouped into an object
 	const example4Props = {name: "Diana", message: "You have a message", city: "New York"}
@@ -26,8 +29,12 @@
 	// function to close the popup
 	const onClosePopoup = (event) => {
 		isPopUpVisible = false
-		dataFromThePopover = (event.detail)
+		dataFromThePopover = (event.detail) // we get the data from the child using event.detail
 	}	
+	//
+	const handleGreet = (event) => {
+		console.log(event.detail)
+	}
 </script>
 
 <main>
@@ -41,6 +48,16 @@
 	{#if dataFromThePopover}
 	<p>This is the data from the popover: {dataFromThePopover}</p>
 	{/if}
+	<!-- we listen to the event in the App component insetad of the Outer component -->
+	<Outer on:greet-user={handleGreet}/>
+	<!-- the Card code that uses slots -->
+	<Card>{"There I pass just a string to the card."}</Card>
+	<Card><h4>Here I pass a heading to the card.</h4></Card>
+	<Card>
+		<h4>Here I pass a heading to the card.</h4>
+		<p>And I can pass multiple HTML tags if I want.</p>
+	</Card>
+	<Card/>
 
 	
 </main>
