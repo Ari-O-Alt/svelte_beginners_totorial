@@ -6,7 +6,8 @@
 	import Example4 from "./Components/Example4.svelte"
 	import FakePopup from "./Components/FakePopup.svelte";
 	import Outer from "./Components/Outer.svelte";
-	import Card from "./Components/Card.svelte"
+	import SimpleCard from "./Components/SimpleCard.svelte"
+	import ComplexCard from "./Components/ComplexCard.svelte";
 
 	// multiple props grouped into an object
 	const example4Props = {name: "Diana", message: "You have a message", city: "New York"}
@@ -50,15 +51,16 @@
 	{/if}
 	<!-- we listen to the event in the App component insetad of the Outer component -->
 	<Outer on:greet-user={handleGreet}/>
-	<!-- the Card code that uses slots -->
-	<Card>{"There I pass just a string to the card."}</Card>
-	<Card><h4>Here I pass a heading to the card.</h4></Card>
-	<Card>
+	<!-- the SimpleCard code that uses basic slots -->
+	<SimpleCard>{"There I pass just a string to the card."}</SimpleCard>
+	<SimpleCard><h4>Here I pass a heading to the card.</h4></SimpleCard>
+	<SimpleCard>
 		<h4>Here I pass a heading to the card.</h4>
 		<p>And I can pass multiple HTML tags if I want.</p>
-	</Card>
-	<Card/>
-
+	</SimpleCard>
+	<SimpleCard/>
+	<!-- the ComplexCard that uses named(multiple) slots -->
+	<ComplexCard></ComplexCard>
 	
 </main>
 
