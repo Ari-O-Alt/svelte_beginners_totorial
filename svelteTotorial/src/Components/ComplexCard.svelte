@@ -3,9 +3,9 @@
 </script>
 
 <div class="card">
-     <div class="header"></div>
-     <div class="content"></div>
-     <div class="footer"></div>
+     <div class="header"><slot name="header"></slot></div>
+     <div class="content"><slot name="content"></slot></div>
+     <div class="footer"><slot name="footer"></slot></div>
 </div>
 
 <style>
