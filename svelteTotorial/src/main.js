@@ -1,6 +1,6 @@
-import App from "./App.svelte";
+import Styling from "./Styling.svelte";
 
-const app = new App({
+const app = new Styling({
   target: document.body,
   props: {},
 });
