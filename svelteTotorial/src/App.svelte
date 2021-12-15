@@ -60,7 +60,11 @@
 	</SimpleCard>
 	<SimpleCard/>
 	<!-- the ComplexCard that uses named(multiple) slots -->
-	<ComplexCard></ComplexCard>
+	<ComplexCard>
+		<div slot="header">This is a header!</div>
+		<div slot="content">This is the content!</div>
+		<div slot="footer">This is a footer!</div>
+	</ComplexCard>
 	
 </main>
 

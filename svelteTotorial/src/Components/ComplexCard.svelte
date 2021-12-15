@@ -3,9 +3,15 @@
 </script>
 
 <div class="card">
-     <div class="header"><slot name="header"></slot></div>
-     <div class="content"><slot name="content"></slot></div>
-     <div class="footer"><slot name="footer"></slot></div>
+    <div class="header"><slot name="header"></slot></div>
+    <div class="content"><slot name="content"></slot></div>
+    {#if $$slots.footer} <!-- checks if this slot has been filled by the parent, and if it has, it will be displayed -->
+        <hr>
+        <div class="footer">
+            <slot name="footer"></slot>
+        </div>
+    {/if}
+     
 </div>
 
 <style>
