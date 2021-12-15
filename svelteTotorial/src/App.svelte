@@ -8,6 +8,7 @@
 	import Outer from "./Components/Outer.svelte";
 	import SimpleCard from "./Components/SimpleCard.svelte"
 	import ComplexCard from "./Components/ComplexCard.svelte";
+	import NameList from "./Components/NameList.svelte";
 
 	// multiple props grouped into an object
 	const example4Props = {name: "Diana", message: "You have a message", city: "New York"}
@@ -65,6 +66,23 @@
 		<div slot="content">This is the content!</div>
 		<div slot="footer">This is a footer!</div>
 	</ComplexCard>
+	<!-- the NameList component -->
+	<!-- each component renders the data in a different way, based on the props from the child -->
+	<NameList>
+		<p slot="details" let:firstName let:lastName>
+			{firstName} - {lastName}
+		</p>
+	</NameList>
+	<NameList>
+		<p slot="details" let:firstName let:lastName>
+			{lastName} - {firstName} 
+		</p>
+	</NameList>
+	<NameList>
+		<p slot="details" let:firstName let:lastName>
+			{lastName}
+		</p>
+	</NameList>
 	
 </main>
 
