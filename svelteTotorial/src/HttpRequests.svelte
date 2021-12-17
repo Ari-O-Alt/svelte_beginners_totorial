@@ -1,6 +1,9 @@
 <script>
 import {onMount} from "svelte"
 import AutoFocus from "./Components/AutoFocus.svelte"
+import TabA from "./Components/TabA.svelte";
+import TabB from "./Components/TabB.svelte";
+import TabC from "./Components/TabC.svelte";
 // we create an array to hold the posts
     let posts = []
 // end point for the call
@@ -9,21 +12,28 @@ import AutoFocus from "./Components/AutoFocus.svelte"
     onMount(async() => {
         const response = await fetch(apiEndpoint)
         posts = await response.json()
-        console.log(posts)
-
     })
+// we create a virable holding the currently active tab; by default it will be TabA
+    let activeTab = TabA
 </script>
 
 <main>
-   <!--  {#each posts as post, index (`${index}_${post}`)}
+<!-- on click, the currently active tab will change -->
+    <button on:click={() => (activeTab = TabA)}>TAB A</button>
+    <button on:click={() => (activeTab = TabB)}>TAB B</button>
+    <button on:click={() => (activeTab = TabC)}>TAB C</button>
+<!-- special Svelte component that lets us bind to a specific component and render it -->
+    <svelte:component this={activeTab} ></svelte:component>
+   
+    <AutoFocus/>
+    {#each posts as post, index (`${index}_${post}`)}
         <h4>{post.title}</h4>
         <p>{post.body}</p>
         <h5>{post.userId}</h5>
         <hr>
     {:else}
-    <p>Loading... </p>
-    {/each} -->
-<AutoFocus/>
+        <p>Loading... </p>
+    {/each}
 </main>
 
 <style>
