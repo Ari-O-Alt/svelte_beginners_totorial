@@ -9,4 +9,4 @@
 </script>
 
 
-<p>The counter's value is: {counter}</p>
+<p>The counter's value is: {counter}</p> <!-- the couter variable will update every time it will be updated in the store and this component will re-render -->
