@@ -1,6 +1,7 @@
 <script>
 import {onMount} from "svelte"
 import AutoFocus from "./Components/AutoFocus.svelte"
+import Display from "./Components/StoreExample/CounterComponents/Display.svelte";
 import TabA from "./Components/TabA.svelte";
 import TabB from "./Components/TabB.svelte";
 import TabC from "./Components/TabC.svelte";
@@ -18,14 +19,16 @@ import TabC from "./Components/TabC.svelte";
 </script>
 
 <main>
+<Display/>
+
 <!-- on click, the currently active tab will change -->
-    <button on:click={() => (activeTab = TabA)}>TAB A</button>
+    <!-- <button on:click={() => (activeTab = TabA)}>TAB A</button>
     <button on:click={() => (activeTab = TabB)}>TAB B</button>
-    <button on:click={() => (activeTab = TabC)}>TAB C</button>
+    <button on:click={() => (activeTab = TabC)}>TAB C</button> -->
 <!-- special Svelte component that lets us bind to a specific component and render it -->
-    <svelte:component this={activeTab} ></svelte:component>
+    <!-- <svelte:component this={activeTab} ></svelte:component> -->
    
-    <AutoFocus/>
+    <!-- <AutoFocus/>
     {#each posts as post, index (`${index}_${post}`)}
         <h4>{post.title}</h4>
         <p>{post.body}</p>
@@ -33,7 +36,7 @@ import TabC from "./Components/TabC.svelte";
         <hr>
     {:else}
         <p>Loading... </p>
-    {/each}
+    {/each} -->
 </main>
 
 <style>
