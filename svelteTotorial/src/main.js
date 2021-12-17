@@ -1,6 +1,6 @@
-import Styling from "./Styling.svelte";
+import HttpRequests from "./HttpRequests.svelte";
 
-const app = new Styling({
+const app = new HttpRequests({
   target: document.body,
   props: {},
 });
