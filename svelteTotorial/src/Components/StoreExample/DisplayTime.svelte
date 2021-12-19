@@ -1,5 +1,5 @@
 <script>
-    import {readableDateStore} from "./Store"
+    import {readableDateStore, derivedDateStore} from "./Store"
 
 // function to format the date to a redable string
     const dateFormatter = new Intl.DateTimeFormat("en", {
@@ -11,3 +11,4 @@
 </script>
 
 <h2>The time is: {dateFormatter.format($readableDateStore)}</h2>
+<h2>The elapsed time is: {$derivedDateStore}</h2>
