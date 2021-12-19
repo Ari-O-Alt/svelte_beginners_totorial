@@ -1,8 +1,8 @@
 <script>
-    import {countStore} from "../Store.js" // we import the count store
+    import {writibleCountStore} from "../Store.js" // we import the count store
 
     const handleDecrement = () => { 
-        countStore.update((storeValue) => { // we use the update method on the store to update the value in the store
+        writibleCountStore.update((storeValue) => { // we use the update method on the store to update the value in the store
             return storeValue - 1
         })
     }

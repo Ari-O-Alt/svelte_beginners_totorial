@@ -1,27 +1,29 @@
 <script>
-import {onMount} from "svelte"
-import AutoFocus from "./Components/AutoFocus.svelte"
+/* import {onMount} from "svelte"
+import AutoFocus from "./Components/AutoFocus.svelte" */
 import Decrement from "./Components/StoreExample/CounterComponents/Decrement.svelte";
 import Display from "./Components/StoreExample/CounterComponents/Display.svelte";
 import Increment from "./Components/StoreExample/CounterComponents/Increment.svelte";
 import Reset from "./Components/StoreExample/CounterComponents/Reset.svelte";
-import TabA from "./Components/TabA.svelte";
+import DisplayTime from "./Components/StoreExample/DisplayTime.svelte";
+/* import TabA from "./Components/TabA.svelte";
 import TabB from "./Components/TabB.svelte";
-import TabC from "./Components/TabC.svelte";
+import TabC from "./Components/TabC.svelte"; */
 // we create an array to hold the posts
-    let posts = []
+/*     let posts = [] */
 // end point for the call
-    const apiEndpoint = "https://jsonplaceholder.typicode.com/posts"
+   /*  const apiEndpoint = "https://jsonplaceholder.typicode.com/posts"
 
     onMount(async() => {
         const response = await fetch(apiEndpoint)
         posts = await response.json()
-    })
+    }) */
 // we create a virable holding the currently active tab; by default it will be TabA
-    let activeTab = TabA
+/*     let activeTab = TabA */
 </script>
 
 <main>
+<DisplayTime/>
 <Display/>
 <Increment />
 <Decrement />

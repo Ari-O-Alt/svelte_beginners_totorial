@@ -1,8 +1,8 @@
 <script>
     import { onDestroy } from "svelte";
-    import {countStore} from "../Store.js" // we import the count store
+    import {writibleCountStore} from "../Store.js" // we import the count store
     let counter;
-    const subscribeToTheStore = countStore.subscribe((storeValue) => { // we subscribe to the store and asign the value we subscribed to to a local variable we created
+    const subscribeToTheStore = writibleCountStore.subscribe((storeValue) => { // we subscribe to the store and asign the value we subscribed to to a local variable we created
     counter = storeValue
   })
     onDestroy(subscribeToTheStore) // we unsuscribe to the store when the component is being unmounted to avoid memory leaks
