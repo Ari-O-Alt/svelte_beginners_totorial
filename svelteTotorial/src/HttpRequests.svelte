@@ -4,6 +4,7 @@ import AutoFocus from "./Components/AutoFocus.svelte"
 import Decrement from "./Components/StoreExample/CounterComponents/Decrement.svelte";
 import Display from "./Components/StoreExample/CounterComponents/Display.svelte";
 import Increment from "./Components/StoreExample/CounterComponents/Increment.svelte";
+import Reset from "./Components/StoreExample/CounterComponents/Reset.svelte";
 import TabA from "./Components/TabA.svelte";
 import TabB from "./Components/TabB.svelte";
 import TabC from "./Components/TabC.svelte";
@@ -24,6 +25,7 @@ import TabC from "./Components/TabC.svelte";
 <Display/>
 <Increment />
 <Decrement />
+<Reset />
 
 <!-- on click, the currently active tab will change -->
     <!-- <button on:click={() => (activeTab = TabA)}>TAB A</button>
